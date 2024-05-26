@@ -1,26 +1,24 @@
-**MyToken Contract**
-This contract is a simple implementation of a token with the following features:
-- Public variables to store the token name, abbreviation, and total supply.
-- A mapping of addresses to balances.
-- A mint function to create new tokens and assign them to a specified address.
-- A burn function to destroy existing tokens and decrease the total supply and the balance of the sender.
+MyToken Smart Contract
+This is a simple smart contract for a token called "medusa" with the abbreviation "md". The contract is written in Solidity, a statically-typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM).
 
-**Usage**
-**Minting Tokens**
-To mint new tokens, call the mint function with the following parameters:
+Requirements
+-The contract has public variables that store the details about the token: Token Name, Token Abbreviation, and Total Supply.
+-The contract has a mapping of addresses to balances (address => uint).
+-The contract has a mint function that takes an address and a value as parameters. This function increases the total supply by that number and increases the balance of the "sender" address by that amount.
+-The contract has a burn function that works the opposite of the mint function. It takes an address and a value as parameters, then deducts the value from the total supply and from the balance of the "sender".
+-The burn function has conditionals to make sure the balance of the "sender" is greater than or equal to the amount that is supposed to be burned.
 
-- _to: the address to receive the new tokens.
-- _value: the number of tokens to mint.
-Before minting new tokens, the contract checks if the sender has enough balance to cover the cost of the new tokens.
+Contract Details
+-Token Name: medusa
+-Token Abbreviation: md
+-Total Supply: Initially set to 0, but can be increased using the mint function.
 
-**Burning Tokens**
-To burn existing tokens, call the burn function with the following parameters:
-- _from: the address to burn the tokens from.
-- _value: the number of tokens to burn.
-Before burning tokens, the contract checks if the sender has enough balance to cover the number of tokens to be burned.
+Functions
+mint
+-This function takes an address and a value as parameters. It increases the total supply by the value and increases the balance of the "sender" address by that amount.
 
-**Compilation**
-This contract can be compiled with the Solidity compiler version 0.8.18 or higher.
+burn
+-This function takes an address and a value as parameters. It checks if the balance of the "sender" is greater than or equal to the value. If true, it decreases the total supply by the value and decreases the balance of the "sender" address by that amount.
 
-**License**
-This contract is released under the MIT License. See LICENSE for details.
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
